@@ -162,6 +162,8 @@ class PrintStruk extends Command
                     $this->printer->feed();
                     // Cut the receipt*/
                     $this->printer->cut();
+                    
+                    info("Print : " . $data["id"]);
                 }
                 $this->printer->close();
             }
