@@ -101,6 +101,7 @@ class PrintStruk extends Command
                     $this->printer->selectPrintMode(Printer::MODE_FONT_B);
                     $this->printer->text("{$store_address}\n");
                     $this->printer->text("Phone : " . $store_phone . "\n");
+                    $this->printer->text("Payment Method : " . $data["payment_method"] . "\n");
                     $this->printer->setEmphasis(true);
                     $this->printer->text("TID : " . $data["id"]);
                     $this->printer->setEmphasis(false);
@@ -158,7 +159,7 @@ class PrintStruk extends Command
                     $this->printer->text($footer);
                     $this->printer->feed();
                     // Print receipt date
-                    $this->printer->text(date('j F Y H:i:s'));
+                    $this->printer->text($data["date"]);
                     $this->printer->feed();
                     // Cut the receipt*/
                     $this->printer->cut();
